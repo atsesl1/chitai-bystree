@@ -1,4 +1,4 @@
-const VERSION = '68941710f1611011';
+const VERSION = 'b51168a7c2037308';
 const ASSETS = ["./","./install.js","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch.png"];
 const shell = self.registration.scope;
 const prefix = 'chitai-bystree:' + new URL(shell).pathname + ':';
@@ -8,7 +8,7 @@ const assets = new Set(ASSETS.map(path => new URL(path, shell).href));
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(name);
-    await cache.addAll([...assets]);
+    await cache.addAll([...assets].map(url => new Request(url, { cache: 'reload' })));
     await self.skipWaiting();
   })());
 });

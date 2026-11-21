@@ -21,7 +21,7 @@ async function prepareOffline() {
     if (!navigator.serviceWorker.controller) {
       await new Promise(resolve => navigator.serviceWorker.addEventListener('controllerchange', resolve, { once: true }));
     }
-    status.textContent = 'Можно читать офлайн';
+    status.textContent = status.dataset.ready ?? 'Можно читать офлайн';
   } catch {
     showFailure();
   }
