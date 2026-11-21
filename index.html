@@ -418,10 +418,24 @@ kbd { border: 1px solid #a7ab9e; border-radius: .3rem; padding: .05rem .3rem; fo
   background: #111613;
   color: #fff9ef;
 }
-.reading-focus[open] { display: grid; align-items: center; }
+.reading-focus[open] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr min(100%, clamp(4.5rem, 16vw, 11rem)) 1fr;
+  align-items: center;
+}
+.reading-focus::before, .reading-focus::after {
+  content: '';
+  justify-self: center;
+  align-self: stretch;
+  width: 1px;
+  background: #636e66;
+  pointer-events: none;
+}
 .reading-focus::backdrop { background: #111613; }
 .reading-focus .word {
-  width: 90%;
+  grid-row: 2;
+  width: 100%;
   font-size: calc(min(8cqi, 5.5rem) * var(--word-scale, 1));
 }
 .focus-pause {
@@ -479,7 +493,7 @@ html:has(.reading-focus[open]) { overflow: hidden; }
     <div class="intro">
       <h1>Читалка</h1>
       <p>Откройте PDF или вставьте текст и выберите свой темп.</p>
-      <p id="offline-status" data-ready="Можно читать офлайн · 1.5.0" data-failure="Офлайн-режим не готов. Подключитесь к интернету и обновите страницу." role="status">Подготавливаем офлайн-режим…</p>
+      <p id="offline-status" data-ready="Можно читать офлайн · 1.6.0" data-failure="Офлайн-режим не готов. Подключитесь к интернету и обновите страницу." role="status">Подготавливаем офлайн-режим…</p>
     </div>
     <section class="recent-books" aria-labelledby="recent-heading">
       <div class="recent-heading">
@@ -869,10 +883,24 @@ startxref
   background: #111613;
   color: #fff9ef;
 }
-.reading-focus[open] { display: grid; align-items: center; }
+.reading-focus[open] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr min(100%, clamp(4.5rem, 16vw, 11rem)) 1fr;
+  align-items: center;
+}
+.reading-focus::before, .reading-focus::after {
+  content: '';
+  justify-self: center;
+  align-self: stretch;
+  width: 1px;
+  background: #636e66;
+  pointer-events: none;
+}
 .reading-focus::backdrop { background: #111613; }
 .reading-focus .word {
-  width: 90%;
+  grid-row: 2;
+  width: 100%;
   font-size: calc(min(8cqi, 5.5rem) * var(--word-scale, 1));
 }
 .focus-pause {
