@@ -1,4 +1,4 @@
-const VERSION = 'b51168a7c2037308';
+const VERSION = 'aa9cc36e4561cf56';
 const ASSETS = ["./","./install.js","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/apple-touch.png"];
 const shell = self.registration.scope;
 const prefix = 'chitai-bystree:' + new URL(shell).pathname + ':';
